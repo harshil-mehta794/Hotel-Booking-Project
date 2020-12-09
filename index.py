@@ -3,7 +3,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from app import app, server
 import knn
-#import rf
+import rf
 import gbm
 
 colors = {
@@ -19,7 +19,7 @@ app.layout = html.Div([
 
         dcc.Tab(label='K-nearest Neighbors', value='tab-knn', style={'backgroundColor': colors['background']}),
 
-        #dcc.Tab(label='Random Forest', value='tab-RandomForest'),
+        dcc.Tab(label='Random Forest', value='tab-RandomForest'),
         dcc.Tab(label='Gradient Boosting Classifier', value='tab-GBM', style={'backgroundColor': colors['background']})
 
     ], colors={ "border": "white",
@@ -33,7 +33,7 @@ app.layout = html.Div([
 def render_content(tab):
 
     if tab == 'tab-knn': return knn.layout
-    #elif tab == 'tab-RandomForest': return rf.layout
+    elif tab == 'tab-RandomForest': return rf.layout
     elif tab == 'tab-GBM': return gbm.layout
     
 if __name__ == '__main__':
